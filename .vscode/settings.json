@@ -5,5 +5,6 @@
     "isort.check": true,
     "isort.path": [
         "dist/export/python/virtualenvs/tools/isort/bin/isort"
-    ]
+    ],
+    "python.defaultInterpreterPath": "${workspaceFolder}/dist/export/python/virtualenvs/python-default/3.9.15/bin/python"
 }
