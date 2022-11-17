@@ -5,6 +5,13 @@ backend_packages = [
     "pants.backend.python.lint.black",
     "pants.backend.python.lint.flake8",
     "pants.backend.python.lint.isort",
+    "pants.backend.python.typecheck.mypy",
 ]
 
+[python]
+interpreter_constraints = ["==3.9.*"]
+enable_resolves = true
+resolves = { python-default = "python-default.lock" }
 
+[anonymous-telemetry]
+enabled = false

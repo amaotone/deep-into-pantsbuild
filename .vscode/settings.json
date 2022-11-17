@@ -1,0 +1,9 @@
+{
+    "python.formatting.blackPath": "dist/export/python/virtualenvs/tools/black/bin/black",
+    "python.linting.flake8Path": "dist/export/python/virtualenvs/tools/flake8/bin/flake8",
+    "python.linting.mypyPath": "dist/export/python/virtualenvs/tools/mypy/bin/mypy",
+    "isort.check": true,
+    "isort.path": [
+        "dist/export/python/virtualenvs/tools/isort/bin/isort"
+    ]
+}
