@@ -1,0 +1,39 @@
+name: Pants
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: ci checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - uses: pantsbuild/actions/init-pants@v1
+        with:
+          gha-cache-key: cache0-py3.9
+          named-caches-hash: ${{ hashFiles('python-default.lock') }}
+          cache-lmdb-store: "true"
+
+      - name: check BUILD files
+        run: |
+          ./pants tailor --check :: && ./pants update-build-files --check ::
+      - name: lint
+        run: |
+          ./pants lint ::
+      - name: test
+        run: |
+          ./pants test ::
+      - name: package
+        run: |
+          ./pants package ::
+      - name: upload log
+        uses: actions/upload-artifact@v3
+        with:
+          name: pants-log
+          path: .pants.d/pants.log
+        if: always()
