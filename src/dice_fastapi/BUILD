@@ -5,9 +5,11 @@ pex_binary(
     entry_point="app.py",
     layout="packed",
     execution_mode="venv",
+
+    # for Apple Silicon and Docker Linux
     platforms=[
         "current",
-        "linux-x86_64-cp-39-cp39",
+        "manylinux_2_17_aarch64-cp-39-cp39",
     ],
 )
 
