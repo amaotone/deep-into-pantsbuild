@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: 3.9
 
-      - uses: pantsbuild/actions/init-pants@v1
+      - uses: pantsbuild/actions/init-pants@v2
         with:
           gha-cache-key: cache0-py3.9
           named-caches-hash: ${{ hashFiles('python-default.lock') }}
