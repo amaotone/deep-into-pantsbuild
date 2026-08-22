@@ -1,4 +1,4 @@
-FROM pytorch/torchserve:0.6.1-cpu
+FROM pytorch/torchserve:0.12.0-cpu
 
 USER root
 RUN apt-get update \
